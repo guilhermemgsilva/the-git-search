@@ -4,7 +4,7 @@
   height: 100vh;
   width: 100vw;
   display: flex;
-  align-content: center;
+  justify-content: center;
 }
 
 .main-logo {
