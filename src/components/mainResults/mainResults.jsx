@@ -5,7 +5,7 @@ function MainResults() {
   return (
     <div className='main'>
       <div className='results-title'>
-        <p></p>
+        <p>Resultados para: Paytime</p>
       </div>
 
       <div className='results'></div>
