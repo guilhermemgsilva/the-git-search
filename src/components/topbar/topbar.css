@@ -17,7 +17,7 @@
   cursor: pointer;
   margin: 10px 32px 10px 40px;
 }
-/*
+
 .search-bar {
   width: calc(100vw - 190px);
   height: 36px;
@@ -33,7 +33,7 @@
   color: #a99faa;
   font-family: 'Roboto', sans-serif;
 }
-
+/*
 .search-bar button {
   width: 36px;
   height: 100%;
