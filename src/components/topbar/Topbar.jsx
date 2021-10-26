@@ -1,5 +1,7 @@
 import React from 'react'
 import './topbar.css'
+import Logotype from '../../assets/images/Logotype.png'
+
 function Topbar() {
   return (
     <div className='top'>
