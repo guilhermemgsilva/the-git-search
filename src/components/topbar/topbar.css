@@ -43,6 +43,9 @@
   border-radius: 0px 4px 4px 0px;
   color: #ffffff;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar button:hover {
