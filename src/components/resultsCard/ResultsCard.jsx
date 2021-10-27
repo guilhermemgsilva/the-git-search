@@ -2,7 +2,7 @@ import React from 'react'
 import { SearchContext } from '../../providers/search'
 import './resultsCard.css'
 function ResultsCard({ login, html_url, score, avatar_url, id }) {
-  const { setUserIdAndLogin } = React.useContext(SearchContext)
+  const { setUserIdAndLogin, setModalLoader } = React.useContext(SearchContext)
 
   const abreModal = (e) => {
     e.preventDefault()
@@ -21,6 +21,7 @@ function ResultsCard({ login, html_url, score, avatar_url, id }) {
       <span>Score: {score}</span>
       <button
         onClick={(e) => {
+          setModalLoader(true)
           abreModal(e)
           setUserIdAndLogin({ id, login })
         }}

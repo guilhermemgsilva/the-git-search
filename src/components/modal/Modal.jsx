@@ -1,15 +1,15 @@
 import React from 'react'
 import './modal.css'
 import { SearchContext } from '../../providers/search'
+import Loading from '../loading/Loading'
 
 function Modal() {
-  const { userModalData } = React.useContext(SearchContext)
+  const { userModalData, modalLoader } = React.useContext(SearchContext)
 
   const fechaModal = (e) => {
     e.preventDefault()
     const modal = document.querySelector('.modal')
     modal.style.display = 'none'
-    //setModalLoader(true)
   }
   const addZeroToDate = (dateNumber) => {
     if (dateNumber <= 9) return '0' + dateNumber
@@ -24,7 +24,9 @@ function Modal() {
 
   return (
     <div className='modal'>
-      {
+      {modalLoader ? (
+        <Loading toggle='on' />
+      ) : (
         <div className='card-modal'>
           <div className='profile-piture'>
             <img src={userModalData.data.avatar_url} alt='profile' />
@@ -72,7 +74,7 @@ function Modal() {
             </div>
           </div>
         </div>
-      }
+      )}
     </div>
   )
 }

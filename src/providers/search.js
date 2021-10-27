@@ -18,6 +18,8 @@ export const SearchProvider = (props) => {
     },
   })
   const [userIdAndLogin, setUserIdAndLogin] = useState()
+  const [modalLoader, setModalLoader] = useState(true)
+  const [resultsLoader, setResultsLoader] = useState(true)
 
   useEffect(() => {
     const fetchModalResult = async () => {
@@ -27,6 +29,7 @@ export const SearchProvider = (props) => {
             `https://api.github.com/users/${userIdAndLogin.login}`
           )
           setUserModalData(resultsModal)
+          setModalLoader(false)
         }
       } catch (error) {}
     }
@@ -42,6 +45,7 @@ export const SearchProvider = (props) => {
           `https://api.github.com/search/users?q=${search}`
         )
         setUserData(results)
+        setResultsLoader(false)
       } catch (error) {}
     }
     if (search) {
@@ -60,6 +64,10 @@ export const SearchProvider = (props) => {
         setUserModalData,
         setUserIdAndLogin,
         userIdAndLogin,
+        modalLoader,
+        setModalLoader,
+        setResultsLoader,
+        resultsLoader,
       }}
     >
       {props.children}
