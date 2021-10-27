@@ -15,8 +15,10 @@
   width: 980px;
   height: 42px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   z-index: 1;
+  justify-content: center;
+  border-bottom: solid 1px #e1dfe0;
 }
 
 .results {
@@ -29,6 +31,7 @@
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   overflow-y: scroll;
+  margin-top: 20px;
 }
 ::-webkit-scrollbar {
   width: 0px;

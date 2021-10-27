@@ -6,7 +6,6 @@ function MainResults() {
     <div className='main'>
       <div className='results-title'>
         <p>Resultados para: Paytime</p>
-        <hr />
       </div>
 
       <div className='results'></div>
