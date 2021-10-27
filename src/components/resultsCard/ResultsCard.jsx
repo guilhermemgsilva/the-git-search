@@ -1,14 +1,15 @@
 import React from 'react'
+import { SearchContext } from '../../providers/search'
 import './resultsCard.css'
-function ResultsCard() {
+function ResultsCard({ login, html_url, score, avatar_url }) {
   return (
     <div className='card'>
-      <img src='' alt='' />
-      <h2>João</h2>
-      <a href='#' target='_blank' rel='noopener noreferrer'>
-        http://www.github.com/jaouser
+      <img src={avatar_url} alt='' />
+      <h2>{login}</h2>
+      <a href={html_url} target='_blank' rel='noopener noreferrer'>
+        {html_url}
       </a>
-      <span>Score: 1.00</span>
+      <span>Score: {score}</span>
       <button className='ver-mais-button'>Ver mais</button>
     </div>
   )

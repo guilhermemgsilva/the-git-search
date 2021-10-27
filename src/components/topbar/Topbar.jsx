@@ -1,23 +1,34 @@
 import React from 'react'
 import './topbar.css'
 import Logotype from '../../assets/images/Logotype.png'
+import { Link, useHistory } from 'react-router-dom'
+import { SearchContext } from '../../providers/search'
 
 function Topbar() {
+  const { setSearch } = React.useContext(SearchContext)
+  const history = useHistory()
   return (
     <div className='top'>
       <div className='top-logo'>
-        <img
-          src={Logotype}
-          alt='Logo do The Git Search'
-          width='78'
-          height='36'
-        />
+        <Link to='/'>
+          <img
+            src={Logotype}
+            alt='Logo do The Git Search'
+            width='78'
+            height='36'
+          />
+        </Link>
       </div>
 
       <div className='search-bar'>
         <input id='campo-busca' type='text' placeholder='Pesquisar' />
 
-        <button>
+        <button
+          onClick={(e) => {
+            setSearch(document.querySelector('#campo-busca').value)
+            history.push('/results')
+          }}
+        >
           <i className='fal fa-search search-icon'></i>
         </button>
       </div>
