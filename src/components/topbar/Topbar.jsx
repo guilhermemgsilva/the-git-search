@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { SearchContext } from '../../providers/search'
 
 function Topbar() {
-  const { setSearch } = React.useContext(SearchContext)
+  const { setSearch, setResultsLoader } = React.useContext(SearchContext)
   const history = useHistory()
   return (
     <div className='top'>
@@ -25,6 +25,7 @@ function Topbar() {
 
         <button
           onClick={(e) => {
+            setResultsLoader(true)
             setSearch(document.querySelector('#campo-busca').value)
             history.push('/results')
           }}
