@@ -1,7 +1,16 @@
 import React from 'react'
 import { SearchContext } from '../../providers/search'
 import './resultsCard.css'
-function ResultsCard({ login, html_url, score, avatar_url }) {
+function ResultsCard({ login, html_url, score, avatar_url, id }) {
+  const { setUserIdAndLogin } = React.useContext(SearchContext)
+
+  const abreModal = (e) => {
+    e.preventDefault()
+    const modal = document.querySelector('.modal')
+
+    modal.style.display = 'block'
+  }
+
   return (
     <div className='card'>
       <img src={avatar_url} alt='' />
@@ -10,7 +19,15 @@ function ResultsCard({ login, html_url, score, avatar_url }) {
         {html_url}
       </a>
       <span>Score: {score}</span>
-      <button className='ver-mais-button'>Ver mais</button>
+      <button
+        onClick={(e) => {
+          abreModal(e)
+          setUserIdAndLogin({ id, login })
+        }}
+        className='ver-mais-button'
+      >
+        Ver mais
+      </button>
     </div>
   )
 }
